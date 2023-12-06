@@ -1,14 +1,12 @@
-package diario;
+package diariobienhecho;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class Diario {
+public class VisualizadorActividades {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<String> actividades = new ArrayList<>();
+        GestorActividades gestorActividades = new GestorActividades();
         int option = 0;
         do {
             System.out.println("Entre 1 para añadir actividad");
@@ -20,24 +18,25 @@ public class Diario {
                 case 1:
                     System.out.println("Entre la actividad a añadir");
                     String actividadAñadir = sc.next();
-                    actividades.add(actividadAñadir);
+                    gestorActividades.addActividad(actividadAñadir);
                     break;
 
                 case 2:
                     System.out.println("Entre la actividad a eliminar");
                     String actividadEliminar = sc.next();
-                    actividades.remove(actividadEliminar);
+                    gestorActividades.removeActividad(actividadEliminar);
                     break;
 
                 case 3:
-                    System.out.println(actividades);
+                    System.out.println(gestorActividades.actividades);
+
                 case 4:
                     break;
+
                 default:
                     System.out.println("opción no válida");
 
             }
         } while (option != 0);
     }
-
 }
